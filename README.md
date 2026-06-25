@@ -1,29 +1,22 @@
 Valle del Sol: Plataforma Inteligente para la Gestión y Prevención de Incendios
 Este proyecto consiste en una solución Fullstack basada en microservicios diseñada para la Municipalidad de Valle del Sol. Su objetivo es permitir el reporte ciudadano de incendios, la visualización de focos en tiempo real y la emisión de alertas comunitarias.
-Arquitectura del Sistema
-La solución utiliza una arquitectura de microservicios donde cada componente es independiente y se comunica vía HTTP REST, utilizando un API Gateway como único punto de entrada.
-API Gateway	
-8080	
-Punto de entrada único y centralización de rutas.
-BFF Service	
-8083	
-Agregador de datos (Dashboard) para optimizar el frontend.
-Reportes Service	
-8081
-Gestión de reportes de incendios y geolocalización.
-Alertas Service
-8082
-Gestión de alertas con patrón Circuit Breaker manual.
-Mapas Service
-8084
-Monitoreo geográfico de focos activos.
-Usuarios Service
-8085
-Autenticación y gestión de roles (Ciudadano/Brigadista).
-Frontend
-3000
-Interfaz de usuario desarrollada en React.
-Tecnologías Utilizadas
+Arquitectura del Sistema: La solución utiliza una arquitectura de microservicios donde cada componente es independiente y se comunica vía HTTP REST, utilizando un API Gateway como único punto de entrada.
+
+API Gateway (8080): Punto de entrada único que centraliza la seguridad y redirige el tráfico externo hacia el servicio correcto según el path.
+
+Microservicio de Reportes (8081): Encargado de la gestión del CRUD de incendios, almacenando descripciones, estados y coordenadas geográficas.
+
+Microservicio de Alertas (8082): Servicio crítico para notificaciones comunitarias que implementa un patrón Circuit Breaker manual para garantizar disponibilidad.
+
+Backend For Frontend - BFF (8083): Actúa como agregador de datos (Dashboard) para optimizar la respuesta al cliente, reduciendo la latencia de red.
+
+Microservicio de Mapas (8084): Gestiona el monitoreo geográfico de focos activos y la delimitación de zonas de evacuación o brigadas.
+
+Microservicio de Usuarios (8085): Responsable de la seguridad, autenticación básica y gestión de roles (Ciudadano, Brigadista, Admin).
+
+Frontend (3000): Interfaz de usuario desarrollada en React para el reporte de incidentes y visualización en tiempo real de la situación.
+
+Tecnologías Utilizadas:
 
     Backend: Java 17, Spring Boot, Spring Data JPA.
     Frontend: React (Vite), Axios.
@@ -56,7 +49,7 @@ El proyecto cumple con una cobertura mínima del 60%.
     Para ver el reporte de cobertura: abrir target/site/jacoco/index.html en el navegador.
     Se incluye una prueba de Circuit Breaker en el servicio de Alertas para garantizar que el sistema no colapse si la base de datos falla.
 
-Patrones de Diseño Aplicados
+Patrones de Diseño Aplicados:
 
     Repository Pattern: Para separar la lógica de persistencia.
     Circuit Breaker: Implementado en AlertaService para tolerancia a fallos.
