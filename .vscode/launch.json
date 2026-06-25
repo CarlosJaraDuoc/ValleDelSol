@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BffServiceApplication",
+            "request": "launch",
+            "mainClass": "com.valledelsol.bff_service.BffServiceApplication",
+            "projectName": "bff-service"
+        },
+        {
+            "type": "java",
+            "name": "MsAlertasApplication",
+            "request": "launch",
+            "mainClass": "com.valledelsol.ms_alertas.MsAlertasApplication",
+            "projectName": "ms-alertas"
+        },
+        {
+            "type": "java",
+            "name": "MsReportesApplication",
+            "request": "launch",
+            "mainClass": "com.valledelsol.ms_reportes.MsReportesApplication",
+            "projectName": "ms-reportes"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsReportesApplication<ms-reportes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.valledelsol.msreportes.MsReportesApplication",
+            "projectName": "ms-reportes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
